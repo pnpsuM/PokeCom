@@ -1,6 +1,6 @@
 // PokeCom 서비스워커: 앱 파일 프리캐시 + 폰트 캐시 (스프라이트는 IndexedDB)
-const C = 'pokecom-kggn5';
-const CORE = ["./","index.html","manifest.webmanifest","icon.svg","icon-192.png","icon-180.png","index-B2Y_Au1S.js","ai-DAgWrXXE.js","config-B5_Mj-p1.js","data-ko-Bw8jdYZD.js","data-ratings-CDtKhm8r.js","data-sprites-Dp2ZHFH5.js","jszip.min-Buw8fs18.js","rolldown-runtime-DUp30N8C.js","sim-DzdjjbPq.js","DungGeunMo-BcGpJIxC.woff2","index-q8jUeNMM.css"];
+const C = 'pokecom-fg1j8h';
+const CORE = ["./","index.html","manifest.webmanifest","icon.svg","icon-192.png","icon-180.png","index-CHjYYzUH.js","ai-DvWcAOAP.js","config-MbxaO8VP.js","data-ko-Bw8jdYZD.js","data-ratings-CDtKhm8r.js","data-samples-BYFtYlxU.js","data-sprites-Dp2ZHFH5.js","jszip.min-Buw8fs18.js","rolldown-runtime-DUp30N8C.js","sim-DzdjjbPq.js","DungGeunMo-BcGpJIxC.woff2","index-VtFcx5PK.css"];
 self.addEventListener('install', e => { e.waitUntil(caches.open(C).then(c => c.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => {
 	e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== C && k.startsWith('pokecom-') && !k.endsWith('-fonts')).map(k => caches.delete(k)))).then(() => self.clients.claim()));
